@@ -5,7 +5,6 @@ import CardMedia from '@mui/material/CardMedia'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 import { Link } from 'react-router-dom';
-import { useGetPokemon } from '../../hooks/useGetPokemon';
 
 const PokeCard = (props: any) => {
   const classes = useStyles()

@@ -2,13 +2,11 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { Outlet, useLocation, useParams } from "react-router-dom";
+import { Outlet, useLocation, useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { createUseStyles } from 'react-jss';
-import CardMedia from '@mui/material/CardMedia'
-import CardContent from '@mui/material/CardContent'
-import { useGetPokemon } from '../../hooks/useGetPokemon'
-import { useNavigate } from 'react-router-dom'
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
 import { IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -24,41 +22,25 @@ const style = {
   p: 4,
 };
 
-interface PokemonDetails {
-  id: string,
-  number: string,
-  name: string,
-  weight: string,
-  height: string,
-  classification: string,
-  types: string,
-  resistant: string,
-  weaknesses: string,
-  fleeRate: string,
-  maxCP: string,
-  maxHP: string,
-  image: string
-}
-
 export default function BasicModal() {
   const { pokeName } = useParams();
   const location = useLocation();
-  
-  let navigate = useNavigate();
-  
+
+  const navigate = useNavigate();
+  const [open, setOpen] = React.useState(true);
   const handleOpen = () => setOpen(true);
   const handleClose = () => navigate('/');
 
-  const [poke, setPokemon] = useState('')
+  const [poke, setPokemon] = useState('');
 
-  // open 
+  // open
   useEffect(() => {
     if (pokeName !== ' ') {
-      setPokemon('name: ' + pokeName)
+      setPokemon(`name: ${pokeName}`);
     } else {
-      setPokemon('No pokeName was provided')
+      setPokemon('No pokeName was provided');
     }
-  }, [pokeName])
+  }, [pokeName]);
 
   return (
     <>
@@ -74,22 +56,24 @@ export default function BasicModal() {
               <IconButton onClick={handleClose}>
                 <CloseIcon />
               </IconButton>
-              <Typography className='poke-number' sx={{ mb: 1.5 }} color="text.secondary">
+              <Typography
+                className="poke-number"
+                sx={{ mb: 1.5 }}
+                color="text.secondary"
+              >
                 Pokemon number
               </Typography>
-              <CardMedia style={{ width: "unset", margin: "auto" }}
+              <CardMedia
+                style={{ width: 'unset', margin: 'auto' }}
                 component="img"
                 height="194"
-                image=''
-                alt=''
+                image=""
+                alt=""
               />
             </CardContent>
-            <CardContent className='poke-card-content'>
-              <Typography variant="h5" component="div">
-              </Typography>
-              <Typography>
-                Type: fire
-              </Typography>
+            <CardContent className="poke-card-content">
+              <Typography variant="h5" component="div" />
+              <Typography>Type: fire</Typography>
             </CardContent>
           </Box>
         </Modal>

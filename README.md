@@ -1,4 +1,6 @@
-# theWhiteFox Vite + React + GraphQL boilerplate
+# Vite + React + GraphQL Pokedex
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3db2efd7-75bc-4aac-a30a-f06e28298d5d/deploy-status)](https://app.netlify.com/sites/thewhitefox-pokedex/deploys)
 
 * `node -v` v16.17.0
 * `yarn -v` 1.15.2

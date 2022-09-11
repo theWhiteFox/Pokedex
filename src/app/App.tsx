@@ -1,33 +1,30 @@
 import { createUseStyles } from 'react-jss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client';
-import { LayoutProvider } from '../contexts';
-// import { Nav } from '../components/Nav';
+
 import ResponsiveDrawer from '../components/Nav/ResponsiveDrawer';
 import { client } from './client';
 import { ListPage } from '../screens';
-import Modal from '../components/Modals/PokemonDetails'
+import Modal from '../components/Modals/PokemonDetails';
 
 function App() {
   const classes = useStyles();
 
   return (
     <ApolloProvider client={client}>
-      <LayoutProvider>
-        <div className={classes.root}>
-          <BrowserRouter>
-            <ResponsiveDrawer />
-            <div className={classes.content}>
-              <div className={classes.scrollableArea}>
-                <Routes location={location}>
-                  <Route path="/" element={<ListPage />} />
-                  <Route path=":pokeName" element={<Modal />} />
-                </Routes>
-              </div>
+      <div className={classes.root}>
+        <BrowserRouter>
+          <ResponsiveDrawer />
+          <div className={classes.content}>
+            <div className={classes.scrollableArea}>
+              <Routes location={location}>
+                <Route path="/" element={<ListPage />} />
+                <Route path=":pokeName" element={<Modal />} />
+              </Routes>
             </div>
-          </BrowserRouter>
-        </div>
-      </LayoutProvider>
+          </div>
+        </BrowserRouter>
+      </div>
     </ApolloProvider>
   );
 }

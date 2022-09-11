@@ -18,14 +18,14 @@ const LayoutContext = createContext<LayoutContextValue>({
   setLayout: () => null,
 });
 
-export const LayoutProvider: React.FC = ({ children }) => {
+export const LayoutProvider: React.FC = () => {
   const [layout, setLayout] = useState({
     navCollapsed: true,
   });
 
   return (
     <LayoutContext.Provider value={{ layout, setLayout }}>
-      {children}
+  
     </LayoutContext.Provider>
   );
 };

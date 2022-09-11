@@ -43,24 +43,13 @@ interface PokemonDetails {
 export default function BasicModal() {
   const { pokeName } = useParams();
   const location = useLocation();
-  // const { pokemon, loading } = useGetPokemon("Dragonair")
+  
   let navigate = useNavigate();
-  const [open, setOpen] = React.useState(location.state.modal);
+  
   const handleOpen = () => setOpen(true);
   const handleClose = () => navigate('/');
 
-
   const [poke, setPokemon] = useState('')
-
-  // Object.keys(pokemon).map(function (key, value) {
-  //   console.log(`${key}: ${value}`);
-  // })
-
-  // const PmonMap = new Map(Object.entries(pokemon))
-
-  // const p = Object.entries(pokemon).map(function (key, value) {
-  //   console.table(key, p)
-  // });
 
   // open 
   useEffect(() => {

@@ -3687,6 +3687,11 @@ makeerror@1.0.12:
   dependencies:
     tmpl "1.0.5"
 
+material-icons@^1.11.11:
+  version "1.11.11"
+  resolved "https://registry.yarnpkg.com/material-icons/-/material-icons-1.11.11.tgz#5c4936d120d05d2ba948c2b055748ea3ab2d6472"
+  integrity sha512-8Cv9oJ4rqIYq0qHeX/Q3WU34qAXk8sXA9/sdg9BwPMKFhE0eGYPpVJMdSgmXNwmgxRxpMs68DceYVxx4jMNmbA==
+
 merge-stream@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/merge-stream/-/merge-stream-2.0.0.tgz#52823629a14dd00c9770fb6ad47dc6310f2c1f60"

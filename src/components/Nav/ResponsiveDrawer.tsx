@@ -10,7 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useLayout, useToggleNav } from '../../contexts';
 
 const drawerWidth = 72;
@@ -45,12 +45,13 @@ export default function ResponsiveDrawer(props: Props) {
             <img src="/pokeball-white.png" className={classes.img} />
             <h3>Pokémon</h3>
           </div>
-          <Link to="/">
-            List
-          </Link>
+          <NavLink to="/about" className="" title="">
+            <span className="">About</span>
+            <span className="{classes.text}" />
+          </NavLink>
           <a
             className={classes.gitLink}
-            href="https://github.com/theWhiteFox/ui-assessment-pokedex-snr"
+            href="https://github.com/theWhiteFox/Pokedex"
           >
             <img src="/icons8-octocat-500.svg" className={classes.svg} />
             <h3>GitHub</h3>
@@ -236,6 +237,14 @@ const useStyles = createUseStyles(
     btnTxt: {
       marginLeft: '18px',
       transition: 'all 0s ease-in-out .2s',
+    },
+    icon: {
+      boxSizing: 'border-box',
+      width: '45px',
+      minWidth: '45px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
   },
   { name: 'Nav' }

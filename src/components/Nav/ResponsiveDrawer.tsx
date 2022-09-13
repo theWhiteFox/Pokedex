@@ -8,10 +8,13 @@ import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import ListIcon from '@mui/icons-material/List';
+import InfoIcon from '@mui/icons-material/Info';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Link, NavLink } from 'react-router-dom';
 import { useLayout, useToggleNav } from '../../contexts';
+
 
 const drawerWidth = 72;
 
@@ -46,12 +49,12 @@ export default function ResponsiveDrawer(props: Props) {
             <h3>Pokémon</h3>
           </div>
           <NavLink to="/about" className={classes.gitLink}>
+            <InfoIcon className={classes.icon} />
             <h3 className="">About</h3>
-            <span className={classes.text} />
           </NavLink>
           <NavLink to="/" className={classes.gitLink}>
-            <h3 className="">List</h3>
-            <span className={classes.text} />
+           <ListIcon className={classes.icon} /> 
+            <h3>List</h3>
           </NavLink>
           <a
             className={classes.gitLink}

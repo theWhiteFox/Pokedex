@@ -1,3 +1,4 @@
+import { createUseStyles } from 'react-jss';
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -7,6 +8,7 @@ import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
+import Info from '@mui/material/Info';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -15,6 +17,8 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { useLayout, useToggleNav } from '../../contexts';
+import { NavOption } from './NavOption';
 
 const drawerWidth = 240;
 
@@ -34,22 +38,46 @@ export default function ResponsiveDrawer(props: Props) {
     setMobileOpen(!mobileOpen);
   };
 
+  const { navCollapsed } = useLayout();
+  const classes = useStyles({ navCollapsed });
+  const toggleNav = useToggleNav();
+
   const drawer = (
     <div>
       <Toolbar />
       <Divider />
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+      <div className={classes.root}>
+        <div className={classes.main}>
+          <div className={classes.title}>
+            <img src="/pokeball-white.png" className={classes.img} />
+            <h3>Pokémon</h3>
+          </div>
+          <NavOption to="/" icon="list" name="List">
+            List
+          </NavOption>
+          <NavOption to="/about" icon="info" name="Info">
+            About
+          </NavOption>
+          <a
+            className={classes.gitLink}
+            href="https://github.com/theWhiteFox/ui-assessment-pokedex-snr"
+          >
+            <img src="/icons8-octocat-500.svg" className={classes.svg} />
+            <h3>GitHub</h3>
+          </a>
+        </div>
+        <div className={classes.bottom}>
+          <button className={classes.expandBtn} onClick={() => toggleNav()}>
+            <span
+              title={navCollapsed ? 'Expand' : 'Collapse'}
+              className={(classes.btnIcon, 'material-icons')}
+            >
+              {navCollapsed ? 'unfold_more' : 'unfold_less'}
+            </span>
+            <span className={classes.btnTxt}>Collapse</span>
+          </button>
+        </div>
+      </div>
       <Divider />
     </div>
   );
@@ -78,7 +106,7 @@ export default function ResponsiveDrawer(props: Props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Responsive drawer
+            Pokédex
           </Typography>
         </Toolbar>
       </AppBar>
@@ -98,7 +126,7 @@ export default function ResponsiveDrawer(props: Props) {
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': {
+            '&': {
               boxSizing: 'border-box',
               width: drawerWidth,
             },
@@ -110,7 +138,7 @@ export default function ResponsiveDrawer(props: Props) {
           variant="permanent"
           sx={{
             display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': {
+            '&': {
               boxSizing: 'border-box',
               width: drawerWidth,
             },
@@ -123,3 +151,103 @@ export default function ResponsiveDrawer(props: Props) {
     </Box>
   );
 }
+
+interface StyleProps {
+  navCollapsed: boolean;
+}
+
+const useStyles = createUseStyles(
+  {
+    root: {
+      zIndex: 100,
+      background: '#131924',
+      position: 'fixed',
+      left: 0,
+      top: 0,
+      bottom: 0,
+      width: (props: StyleProps) => (props.navCollapsed ? '81px' : '240px'),
+      display: 'flex',
+      flexDirection: 'column',
+      transition: 'width .2s ease-in-out',
+      overflow: 'hidden',
+      color: 'rgba(255,255,255,.92)',
+    },
+    spacer: {
+      height: '100%',
+      width: (props: StyleProps) => (props.navCollapsed ? '81px' : '240px'),
+      transition: 'width .2s ease-in-out',
+    },
+    main: {
+      flex: '1',
+      '& > *': {
+        paddingLeft: '18px',
+        paddingRight: '18px',
+      },
+    },
+    title: {
+      display: 'flex',
+      letterSpacing: '.1rem',
+      alignItems: 'center',
+      '& h3': {
+        marginLeft: '18px',
+      },
+    },
+    gitLink: {
+      display: 'flex',
+      letterSpacing: '.1rem',
+      alignItems: 'center',
+      '& h3': {
+        marginLeft: '18px',
+      },
+      '&:hover': {
+        background: 'rgba(255,255,255,.04)',
+      },
+    },
+    img: {
+      width: '48px',
+      paddingTop: '12px',
+      paddingBottom: '12px',
+      filter: 'brightness(75%)',
+    },
+    svg: {
+      width: '48px',
+      paddingTop: '4px',
+      paddingLeft: '10px',
+      paddingRight: '12px',
+      paddingBottom: '4px',
+      overflow: 'hidden',
+      filter: 'brightness(75%)',
+    },
+    bottom: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      padding: '12px 18px',
+      borderTop: '2px solid rgba(255, 255, 255, .1)',
+    },
+    expandBtn: {
+      background: 'transparent',
+      position: 'relative',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      width: '100%',
+      cursor: 'pointer',
+      '&:hover': {
+        background: 'rgba(255,255,255,.04)',
+      },
+      '&:active': {
+        background: 'rgba(255,255,255,.06)',
+      },
+      overflow: 'hidden',
+    },
+    btnIcon: {
+      transform: 'rotate(90deg)',
+    },
+    btnTxt: {
+      marginLeft: '18px',
+      transition: 'all 0s ease-in-out .2s',
+    },
+  },
+  { name: 'Nav' }
+);

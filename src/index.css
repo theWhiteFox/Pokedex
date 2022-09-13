@@ -5,8 +5,11 @@ body {
 }
 
 * {
-  font-family: 'Roboto';
-  box-sizing: border-box;
+  color: rgba(255,255,255,.92);
+}
+
+a {
+  text-decoration: none;
 }
 
 .material-icons {

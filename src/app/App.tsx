@@ -1,10 +1,10 @@
 import { createUseStyles } from 'react-jss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client';
-
 import ResponsiveDrawer from '../components/Nav/ResponsiveDrawer';
 import { client } from './client';
-import { ListPage } from '../screens';
+import { ListPage, AboutPage } from '../screens';
+
 import Modal from '../components/Modals/PokemonDetails';
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
             <div className={classes.scrollableArea}>
               <Routes location={location}>
                 <Route path="/" element={<ListPage />} />
+                <Route path="/about" element={<AboutPage />} />
                 <Route path=":pokeName" element={<Modal />} />
               </Routes>
             </div>

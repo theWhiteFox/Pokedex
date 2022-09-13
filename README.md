@@ -1,4 +1,4 @@
-# Vite + React + GraphQL Pokédex
+# Pokédex: Vite + React + TS + GraphQL
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/3db2efd7-75bc-4aac-a30a-f06e28298d5d/deploy-status)](https://app.netlify.com/sites/thewhitefox-pokedex/deploys)
 

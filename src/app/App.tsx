@@ -1,6 +1,7 @@
 import { createUseStyles } from 'react-jss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client';
+import { LayoutProvider } from '../contexts';
 import ResponsiveDrawer from '../components/Nav/ResponsiveDrawer';
 import { client } from './client';
 import { ListPage, AboutPage } from '../screens';
@@ -12,20 +13,22 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      <div className={classes.root}>
-        <BrowserRouter>
-          <ResponsiveDrawer />
-          <div className={classes.content}>
-            <div className={classes.scrollableArea}>
-              <Routes location={location}>
-                <Route path="/" element={<ListPage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path=":pokeName" element={<Modal />} />
-              </Routes>
+      <LayoutProvider>
+        <div className={classes.root}>
+          <BrowserRouter>
+            <ResponsiveDrawer />
+            <div className={classes.content}>
+              <div className={classes.scrollableArea}>
+                <Routes location={location}>
+                  <Route path="/" element={<ListPage />} />
+                  <Route path="/about" element={<AboutPage />} />
+                  <Route path=":pokeName" element={<Modal />} />
+                </Routes>
+              </div>
             </div>
-          </div>
-        </BrowserRouter>
-      </div>
+          </BrowserRouter>
+        </div>
+      </LayoutProvider>
     </ApolloProvider>
   );
 }

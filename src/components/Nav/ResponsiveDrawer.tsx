@@ -20,7 +20,7 @@ import Typography from '@mui/material/Typography';
 import { useLayout, useToggleNav } from '../../contexts';
 import { NavOption } from './NavOption';
 
-const drawerWidth = 240;
+const drawerWidth = 72;
 
 interface Props {
   /**
@@ -215,7 +215,6 @@ const useStyles = createUseStyles(
       paddingLeft: '10px',
       paddingRight: '12px',
       paddingBottom: '4px',
-      overflow: 'hidden',
       filter: 'brightness(75%)',
     },
     bottom: {

@@ -1,9 +1,11 @@
 import React, {
+  ReactNode,
   createContext,
   Dispatch,
   SetStateAction,
   useContext,
   useState,
+  PropsWithChildren,
 } from 'react';
 
 type Layout = { navCollapsed: boolean };
@@ -18,7 +20,12 @@ const LayoutContext = createContext<LayoutContextValue>({
   setLayout: () => null,
 });
 
-export const LayoutProvider: React.FC = ({ children }) => {
+export interface IAuthRouteProps extends PropsWithChildren {
+  children?: ReactNode | undefined;
+}
+
+export const LayoutProvider: React.FC<IAuthRouteProps> = (props) => {
+  const { children } = props;
   const [layout, setLayout] = useState({
     navCollapsed: true,
   });

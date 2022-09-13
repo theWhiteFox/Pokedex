@@ -7,19 +7,11 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import Info from '@mui/material/Info';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
 import { useLayout, useToggleNav } from '../../contexts';
-import { NavOption } from './NavOption';
 
 const drawerWidth = 72;
 
@@ -53,12 +45,9 @@ export default function ResponsiveDrawer(props: Props) {
             <img src="/pokeball-white.png" className={classes.img} />
             <h3>Pokémon</h3>
           </div>
-          <NavOption to="/" icon="list" name="List">
+          <Link to="/">
             List
-          </NavOption>
-          <NavOption to="/about" icon="info" name="Info">
-            About
-          </NavOption>
+          </Link>
           <a
             className={classes.gitLink}
             href="https://github.com/theWhiteFox/ui-assessment-pokedex-snr"

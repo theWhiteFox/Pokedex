@@ -13,7 +13,6 @@ export const NavOption: React.FC<NavOptionProps> = ({
   to,
   icon,
   name,
-  children,
 }) => {
   const classes = useStyles();
 
@@ -26,7 +25,7 @@ export const NavOption: React.FC<NavOptionProps> = ({
   return (
     <NavLink to={to} className={getRootClassName} title={name}>
       <span className={clsx(classes.icon, 'material-icons')}>{icon}</span>
-      <span className={classes.text}>{children}</span>
+      <span className={classes.text}></span>
     </NavLink>
   );
 };

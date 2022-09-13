@@ -12,10 +12,10 @@
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "@apollo/react-hooks": "^4.0.0",
-    "@emotion/react": "^11.10.0",
-    "@emotion/styled": "^11.10.0",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.2",
-    "@mui/material": "^5.10.2",
+    "@mui/material": "^5.10.5",
     "clsx": "^1.2.1",
     "graphql": "^16.6.0",
     "graphql-tag": "^2.12.6",

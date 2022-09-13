@@ -47,7 +47,11 @@ export default function ResponsiveDrawer(props: Props) {
           </div>
           <NavLink to="/about" className="" title="">
             <span className="">About</span>
-            <span className="{classes.text}" />
+            <span className="" />
+          </NavLink>
+          <NavLink to="/" className="" title="">
+            <span className="">List</span>
+            <span className="" />
           </NavLink>
           <a
             className={classes.gitLink}

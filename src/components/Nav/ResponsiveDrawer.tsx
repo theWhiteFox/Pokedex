@@ -45,13 +45,13 @@ export default function ResponsiveDrawer(props: Props) {
             <img src="/pokeball-white.png" className={classes.img} />
             <h3>Pokémon</h3>
           </div>
-          <NavLink to="/about" className="" title="">
-            <span className="">About</span>
-            <span className="" />
+          <NavLink to="/about" className="" title="" className={classes.gitLink}>
+            <h3 className="">About</h3>
+            <span className={classes.text} />
           </NavLink>
-          <NavLink to="/" className="" title="">
-            <span className="">List</span>
-            <span className="" />
+          <NavLink to="/" className="" title="" className={classes.gitLink}>
+            <h3 className="">List</h3>
+            <span className={classes.text} />
           </NavLink>
           <a
             className={classes.gitLink}
@@ -241,6 +241,9 @@ const useStyles = createUseStyles(
     btnTxt: {
       marginLeft: '18px',
       transition: 'all 0s ease-in-out .2s',
+    },
+    text: {
+      marginLeft: '18px',
     },
     icon: {
       boxSizing: 'border-box',

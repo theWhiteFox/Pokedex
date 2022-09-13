@@ -45,11 +45,11 @@ export default function ResponsiveDrawer(props: Props) {
             <img src="/pokeball-white.png" className={classes.img} />
             <h3>Pokémon</h3>
           </div>
-          <NavLink to="/about" className="" title="" className={classes.gitLink}>
+          <NavLink to="/about" className={classes.gitLink}>
             <h3 className="">About</h3>
             <span className={classes.text} />
           </NavLink>
-          <NavLink to="/" className="" title="" className={classes.gitLink}>
+          <NavLink to="/" className={classes.gitLink}>
             <h3 className="">List</h3>
             <span className={classes.text} />
           </NavLink>

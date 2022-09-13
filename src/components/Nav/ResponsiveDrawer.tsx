@@ -1,5 +1,6 @@
 import { createUseStyles } from 'react-jss';
 import * as React from 'react';
+import clsx from 'clsx';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -70,7 +71,7 @@ export default function ResponsiveDrawer(props: Props) {
           <button className={classes.expandBtn} onClick={() => toggleNav()}>
             <span
               title={navCollapsed ? 'Expand' : 'Collapse'}
-              className={(classes.btnIcon, 'material-icons')}
+              className={clsx(classes.btnIcon, 'material-icons')}
             >
               {navCollapsed ? 'unfold_more' : 'unfold_less'}
             </span>

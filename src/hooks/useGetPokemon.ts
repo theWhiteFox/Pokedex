@@ -44,7 +44,7 @@ export const GET_POKEMON = gql`
   }
 `;
 
-export const useGetPokemon = (name: any) => {
+export const useGetPokemon = (name: unknown) => {
   const { data, ...queryRes } = useQuery(GET_POKEMON, {
     variables: {
       name,

@@ -37,10 +37,12 @@ const Search = () => {
       <form action="/" method="get">
         <label htmlFor="header-search">
           <span className="visually-hidden">
-            Search Pokemon names
+            Search Pokémon Names
           </span>
         </label>
-        <input type="text" placeholder="Enter Pokemon name" onChange={(e) => searchItems(e.target.value)} />
+        <div style={{display:'flex', justifyContent:'center', marginBottom:'1rem' }}>
+          <input type="text" placeholder="Enter Pokemon name" onChange={(e) => searchItems(e.target.value)} />
+          </div>
       </form>
       {
         loading && <div>
@@ -76,6 +78,10 @@ const useStyles = createUseStyles(
       width: '100%',
       textAlign: 'center',
       boxSizing: 'border-box',
+      'form': {
+        margin:'auto',
+        display: 'block',
+      },
       '& label span': {
         marginTop:'.4rem',
         fontSize: '1.6rem',
@@ -97,6 +103,7 @@ const useStyles = createUseStyles(
       '& input[type=text]': {
         float: 'left',
         width: '100%',
+        maxWidth: '900px',
         height: '40px',
         padding: '0px 8px',
         fontSize: '1rem',

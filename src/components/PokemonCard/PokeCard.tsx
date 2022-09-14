@@ -34,7 +34,7 @@ const PokeCard = (props: any) => {
               {props.pkmn.name}
             </Typography>
             <Typography>
-              Type: {props.pkmn.types}
+              Type: {props.pkmn.types.join(', ')}
             </Typography>
           </CardContent>
         </Card>

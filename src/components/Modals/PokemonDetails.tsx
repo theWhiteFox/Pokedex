@@ -9,6 +9,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CloseIcon from '@mui/icons-material/Close';
 import { useGetPokemon } from '../../hooks/useGetPokemon';
+import BasicTabs from './BasicTabs';
 
 export default function BasicModal() {
   const { pokeName } = useParams();
@@ -20,16 +21,7 @@ export default function BasicModal() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => navigate('/');
 
-  const [poke, setPokemon] = useState('');
-
-  // open
-  useEffect(() => {
-    if (pokeName !== ' ') {
-      setPokemon(`name: ${pokeName}`);
-    } else {
-      setPokemon('No pokeName was provided');
-    }
-  }, [pokeName]);
+  console.log(pokemon)
 
   return (
     <>
@@ -66,6 +58,7 @@ export default function BasicModal() {
                   {pokemon.name}
                 </Typography>
                 <Typography>Type: {pokemon.types}</Typography>
+                <BasicTabs pokeDetails={pokemon}/>
               </CardContent>
             </Card>
           </Box>

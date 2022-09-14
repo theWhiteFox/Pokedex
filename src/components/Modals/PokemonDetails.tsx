@@ -33,7 +33,7 @@ export default function BasicModal() {
 
   return (
     <>
-      <div className={classes.root}>
+      <div>
         <Modal
           open={open}
           onClose={handleClose}

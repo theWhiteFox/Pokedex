@@ -37,7 +37,7 @@ function a11yProps(index: number) {
   };
 }
 
-export default function BasicTabs(props: unknown) {
+export default function BasicTabs(props: any) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {

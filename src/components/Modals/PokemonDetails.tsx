@@ -21,8 +21,6 @@ export default function BasicModal() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => navigate('/');
 
-  console.log(pokemon)
-
   return (
     <>
       <div>
@@ -58,7 +56,7 @@ export default function BasicModal() {
                   {pokemon.name}
                 </Typography>
                 <Typography>Type: {pokemon.types}</Typography>
-                <BasicTabs pokeDetails={pokemon}/>
+                <BasicTabs pokeDetails={pokemon} />
               </CardContent>
             </Card>
           </Box>

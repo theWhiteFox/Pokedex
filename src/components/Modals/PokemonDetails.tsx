@@ -13,7 +13,7 @@ import { useGetPokemon } from '../../hooks/useGetPokemon';
 export default function BasicModal() {
   const { pokeName } = useParams();
   const location = useLocation();
-  const { pokemon, loading } = useGetPokemon(pokeName);
+  const { pokemon } = useGetPokemon(pokeName);
   const classes = useStyles();
   const navigate = useNavigate();
   const [open, setOpen] = useState(true);

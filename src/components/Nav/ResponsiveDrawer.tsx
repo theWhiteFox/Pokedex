@@ -15,7 +15,6 @@ import Typography from '@mui/material/Typography';
 import { Link, NavLink } from 'react-router-dom';
 import { useLayout, useToggleNav } from '../../contexts';
 
-
 const drawerWidth = 72;
 
 interface Props {
@@ -53,7 +52,7 @@ export default function ResponsiveDrawer(props: Props) {
             <h3 className="">About</h3>
           </NavLink>
           <NavLink to="/" className={classes.gitLink}>
-           <ListIcon className={classes.icon} /> 
+            <ListIcon className={classes.icon} />
             <h3>List</h3>
           </NavLink>
           <a
